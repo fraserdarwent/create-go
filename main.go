@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -22,8 +21,4 @@ func main() {
 	router.GET("/api/v1/:name", GetName)
 	log.Infof("Listening on %v", ADDRESS)
 	http.ListenAndServe(ADDRESS, router)
-}
-
-func GetName(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name"))
 }
